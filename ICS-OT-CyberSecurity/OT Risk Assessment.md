@@ -92,7 +92,7 @@ The goal of an OT risk assessment is to ensure the safety, security, and reliabi
 ![Image](https://github.com/user-attachments/assets/1794cf81-942b-4d77-a9f5-a6bc2500c11d)
 
 ### Scoring
-![Image](https://github.com/user-attachments/assets/03175200-e4ce-47ae-9a9b-8541e8dbe093)
+![Image](https://github.com/user-attachments/assets/5b17de2a-3a33-475a-beab-1598c9aefe78)
 
 ## Risk assessment
 ![Image](https://github.com/user-attachments/assets/963324d4-1dec-4b61-a20d-03e58db07206)
