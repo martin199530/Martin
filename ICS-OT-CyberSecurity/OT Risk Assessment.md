@@ -1,8 +1,8 @@
 # OT Risk Assessment
 
-It is the process of identifying, analyzing, and evaluating risks associated with operational technology systems. OT systems include hardware and software that control industrial processes, such as SCADA (Supervisory Control and Data Acquisition), PLCs (Programmable Logic Controllers), DCS (Distributed Control Systems), and other equipment used in industries like manufacturing, energy, transportation, and utilities.
+It is the process of **Identifying, Analyzing, and Evaluating risks** associated with **Operational Technology** systems. **OT systems** include **Hardware and Software** that control industrial processes, such as **SCADA (Supervisory Control and Data Acquisition)**, **PLCs (Programmable Logic Controllers)**, **DCS (Distributed Control Systems)**, and other equipment used in industries like *manufacturing, energy, transportation, and utilities*.
 
-The goal of an OT risk assessment is to ensure the safety, security, and reliability of critical systems by identifying potential vulnerabilities and threats and implementing measures to mitigate risks.
+The goal of an **OT risk assessment** is to ensure the **safety, security, and reliability** of critical systems by identifying **potential vulnerabilities** and** threats** and implementing **measures to mitigate risks**.
  
 ## System under consideration (**SUC**)
 ![Image](https://github.com/user-attachments/assets/09d6f5bb-66bd-476e-ac99-5416373038a2)
