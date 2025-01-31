@@ -2,7 +2,7 @@
 
 It is the process of **Identifying, Analyzing, and Evaluating risks** associated with **Operational Technology** systems. **OT systems** include **Hardware and Software** that control industrial processes, such as **SCADA (Supervisory Control and Data Acquisition)**, **PLCs (Programmable Logic Controllers)**, **DCS (Distributed Control Systems)**, and other equipment used in industries like *manufacturing, energy, transportation, and utilities*.
 
-The goal of an **OT risk assessment** is to ensure the **safety, security, and reliability** of critical systems by identifying **potential vulnerabilities** and** threats** and implementing **measures to mitigate risks**.
+The goal of an **OT risk assessment** is to ensure the **safety, security, and reliability** of critical systems by identifying **potential vulnerabilities** and **threats** and implementing **measures to mitigate risks**.
  
 ## System under consideration (**SUC**)
 ![Image](https://github.com/user-attachments/assets/09d6f5bb-66bd-476e-ac99-5416373038a2)
