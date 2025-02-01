@@ -86,7 +86,7 @@ https://github.com/martin199530/Martin/blob/51459e8bc1f018797ff318158473cc7d7e42
 ![Image](https://github.com/user-attachments/assets/99d84743-48ec-47ef-928a-49dcde1d5c64)
 ![Image](https://github.com/user-attachments/assets/5ac1dc05-b1da-4f11-9972-554395bf18ea)
 ### Asset Inventory
-
+An **Asset Inventory** is a comprehensive record of all **hardware, software, network components**, and **data assets** within an organization. It helps cybersecurity teams **identify**, **manage**, and **protect critical assets** against **cyber threats** and **operational risks**.
 ![Image](https://github.com/user-attachments/assets/3f06039a-1463-419b-a677-59c1c8b5161c)
 ### Risk Assessment Matrix
 
