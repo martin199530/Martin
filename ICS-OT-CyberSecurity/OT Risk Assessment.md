@@ -100,15 +100,15 @@ A **Risk Assessment Matrix** is a tool used to **evaluate** and **prioritize ris
 ## Risk assessment
 1. Lets assess our first asset: **HMI Station** and find the **Risk** without countermeasure
 
-![Image](https://github.com/user-attachments/assets/6f25aa38-be6c-47d0-99ad-8abc142949cc)
+![Image](https://github.com/user-attachments/assets/daed0121-994a-40d7-821e-372be807018e)
 
 * let's apply **countermeasure** 
 
-![Image](https://github.com/user-attachments/assets/a2470731-1a2c-4cb8-8c9d-f5a3f929fde6)
+![Image](https://github.com/user-attachments/assets/b90c459e-d895-4288-ab94-8abc0093db6a)
 
 * let's apply **Recommendations** 
 
-![Image](https://github.com/user-attachments/assets/911fccb5-1709-4904-aa5a-067b9a727e7a)
+![Image](https://github.com/user-attachments/assets/98cfbaf9-5575-4983-a7a5-917def7511da)
 
 2. lets complet the entire **Risk Assessment**
 
