@@ -87,13 +87,29 @@ https://github.com/martin199530/Martin/blob/51459e8bc1f018797ff318158473cc7d7e42
 ![Image](https://github.com/user-attachments/assets/5ac1dc05-b1da-4f11-9972-554395bf18ea)
 ### Asset Inventory
 An **Asset Inventory** is a comprehensive record of all **hardware, software, network components**, and **data assets** within an organization. It helps cybersecurity teams **identify**, **manage**, and **protect critical assets** against **cyber threats** and **operational risks**.
+
 ![Image](https://github.com/user-attachments/assets/3f06039a-1463-419b-a677-59c1c8b5161c)
 ### Risk Assessment Matrix
+A **Risk Assessment Matrix** is a tool used to **evaluate** and **prioritize risks** based on their likelihood (probability) and impact (severity). It helps organizations make **informed decisions** about **mitigating cybersecurity threats** and **vulnerabilities**. This Tool varies from one organazation to another.
 
-![Image](https://github.com/user-attachments/assets/1794cf81-942b-4d77-a9f5-a6bc2500c11d)
+![Image](https://github.com/user-attachments/assets/1d45a6ab-2bb6-4e73-8909-96b2fb212388)
 
 ### Scoring
-![Image](https://github.com/user-attachments/assets/5b17de2a-3a33-475a-beab-1598c9aefe78)
+![Image](https://github.com/user-attachments/assets/2190046c-f17b-4324-8b1d-2d5260e049a1)
 
 ## Risk assessment
-![Image](https://github.com/user-attachments/assets/963324d4-1dec-4b61-a20d-03e58db07206)
+1. Lets assess our first asset: **HMI Station** and find the **Risk** without countermeasure
+
+![Image](https://github.com/user-attachments/assets/6f25aa38-be6c-47d0-99ad-8abc142949cc)
+
+* let's apply **countermeasure** 
+
+![Image](https://github.com/user-attachments/assets/a2470731-1a2c-4cb8-8c9d-f5a3f929fde6)
+
+* let's apply **Recommendations** 
+
+![Image](https://github.com/user-attachments/assets/911fccb5-1709-4904-aa5a-067b9a727e7a)
+
+2. lets complet the entire **Risk Assessment**
+
+![Image](https://github.com/user-attachments/assets/a4c28174-7ae4-433e-a101-8fb1777f8684)
