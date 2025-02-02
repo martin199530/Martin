@@ -115,3 +115,30 @@ A **domain name** is a human-readable address used to access websites and other 
 ![Image](https://github.com/user-attachments/assets/b2714da5-91a1-4d0b-b024-be0d7b00c6df)
 
       Answer : Internet Explorer
+
+## Tools
+
+* **Question 1 :** Provide the method used to determine similarity between the files 
+
+         Answer : Fuzzy Hashing
+
+* **Question 2 :** Provide the alternative name for fuzzy hashes without the abbreviation
+
+![Image](https://github.com/user-attachments/assets/1bbda0a1-ba44-4dfb-9a4a-a74a98fefb12)
+
+          Answer : context triggered piecewise hashes
+
+## TTPs (Tactics, Techniques & Procedures)
+**Tactics, Techniques, and Procedures (TTPs)** are key concepts in cybersecurity used to describe the methods and behaviors of attackers. They provide a structured way to understand and analyze adversary activities in a systematic manner.
+
+- **Question 1 :** Navigate to ATT&CK Matrix webpage. How many techniques fall under the Exfiltration category?
+
+![Image](https://github.com/user-attachments/assets/31c722a8-7669-4d28-a838-8f2cc281d978)
+
+         Answer : 9
+
+- **Question 2 :** Chimera is a China-based hacking group that has been active since 2018. What is the name of the commercial, remote access tool they use for C2 beacons and data exfiltration?
+
+![Image](https://github.com/user-attachments/assets/1de65d62-500b-41fc-95c4-5416b55eda7d)
+
+         Answer : Cobalt Strike
