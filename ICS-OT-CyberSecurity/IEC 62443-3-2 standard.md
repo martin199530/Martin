@@ -104,4 +104,5 @@ Combine threat likelihood and impact severity to determine the overall **risk le
 
 **IEC 62443-3-2** provides a s**tructured framework for conducting cybersecurity Risk Assessments** in **Industrial Control Systems** (ICS). It emphasizes **system segmentation**, **threat analysis**, and **risk mitigation** to ensure **resilient IACS environments**. This standard plays a crucial role in **Operational Technology (OT) security** by guiding organizations on **identifying, assessing, and mitigating cyber risks**.
 
-## [Example (Case study: OT Risk Assessment)](https://github.com/martin199530/Martin/blob/e6cec73728d94d8ef55ce7b7a9950776f45cde7e/ICS-OT-CyberSecurity/OT%20Risk%20Assessment.md)
+## Example (Case study: OT Risk Assessment)
+ [Here](https://github.com/martin199530/Martin/blob/e6cec73728d94d8ef55ce7b7a9950776f45cde7e/ICS-OT-CyberSecurity/OT%20Risk%20Assessment.md)
