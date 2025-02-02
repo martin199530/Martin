@@ -142,3 +142,9 @@ A **domain name** is a human-readable address used to access websites and other 
 ![Image](https://github.com/user-attachments/assets/1de65d62-500b-41fc-95c4-5416b55eda7d)
 
          Answer : Cobalt Strike
+
+## Pyramid Of Pain
+
+![Image](https://github.com/user-attachments/assets/30f6086d-fdcd-404d-8364-641dd85230de)
+
+![Image](https://github.com/user-attachments/assets/b03441cb-c84a-4422-bf0e-fea4b47e5c31)
