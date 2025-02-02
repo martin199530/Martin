@@ -82,7 +82,7 @@ The goal of an **OT risk assessment** is to ensure the **safety, security, and r
 ![Image](https://github.com/user-attachments/assets/09d6f5bb-66bd-476e-ac99-5416373038a2)
 
 ## IEC 62443-3-2 Standards: Detailed Risk Assessment in IACS
-https://github.com/martin199530/Martin/blob/51459e8bc1f018797ff318158473cc7d7e421cfb/ICS-OT-CyberSecurity/IEC%2062443-3-2%20standard.md
+[IEC 62443-3-2](https://github.com/martin199530/Martin/blob/51459e8bc1f018797ff318158473cc7d7e421cfb/ICS-OT-CyberSecurity/IEC%2062443-3-2%20standard.md)
 ![Image](https://github.com/user-attachments/assets/99d84743-48ec-47ef-928a-49dcde1d5c64)
 ![Image](https://github.com/user-attachments/assets/5ac1dc05-b1da-4f11-9972-554395bf18ea)
 ### Asset Inventory
