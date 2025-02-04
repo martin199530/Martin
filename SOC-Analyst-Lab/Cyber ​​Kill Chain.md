@@ -31,21 +31,30 @@ The **Cyber Kill Chain** is a cybersecurity model developed by Lockheed Martin t
 
 ## Exploitation
 
+**Exploitation** is the fourth phase of the Cyber Kill Chain, where the attacker takes advantage of a vulnerability in the target system to execute the malicious payload. This phase marks the transition from delivery to the actual compromise of the system.
+
 * **Question :** 
 Can you provide the name for a cyberattack targeting a software vulnerability that is unknown to the antivirus or software vendors?
 
       Answer: Zero-day
 ## Installation
+
+**Installation** is the fifth phase of the Cyber Kill Chain, where the attacker establishes a foothold on the compromised system. This step involves deploying malware or tools to ensure persistence, enabling the attacker to maintain access and carry out further operations.
+
 * **Question :** Can you provide the technique used to modify file time attributes to hide new or changes to existing files?
 
       Answenr : Timestomping
 
 ## Command & Control (C2)
 
+**Command & Control (C2)** is the sixth stage in the Cyber Kill Chain, where the attacker establishes communication between their malicious tools and a central server or infrastructure. This connection enables the attacker to issue commands, retrieve data, and maintain control over compromised systems.
+
 * **Question :** What is the C2 communication where the victim makes regular DNS requests to a DNS server and domain which belong to an attacker. 
 
       Answer : DNS Tunelling
   ## Actions on Objectives (Exfiltration)
+
+**Actions on Objectives** is the final stage of the Cyber Kill Chain, where attackers achieve their ultimate goals. This phase involves executing the purpose of the attack, which could include data theft, system disruption, espionage, financial gain, or other malicious activities.
 
 * **Question :** Can you provide a technology included in Microsoft Windows that can create backup copies or snapshots of files or volumes on the computer, even when they are in use? 
 
