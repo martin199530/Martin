@@ -198,7 +198,7 @@ The **head** command returns the first 10 events if no number is specified.
 
       Syntax     | head <number> 
   
-      Example    | head   # will return the top 10 events from the result list   
+      Example    | head       # will return the top 10 events from the result list   
                  | head 20    # will return the top 20 events from the result list
 
 The following search query will show the table containing the mentioned fields and display only the top 5 entries.
@@ -206,3 +206,94 @@ The following search query will show the table containing the mentioned fields a
 **Search Query**: index=windowslogs |  table _time EventID Hostname SourceName | head 5
 
 ![Image](https://github.com/user-attachments/assets/1b903a19-2311-45e3-8266-7937fee49587)
+
+### Tail
+
+The **Tail** command returns the last 10 events if no number is specified.
+
+      Syntax     | tail <number>   
+      
+      Example    | tail      # will return the last 10 events from the result list 
+                 | tail 20   # will return the last 20 events from the result list
+
+The following search query will show the table containing the mentioned fields and display only 5 entries from the bottom of the list.
+
+**Search Query**: index=windowslogs |  table _time EventID Hostname SourceName | tail 5
+
+![Image](https://github.com/user-attachments/assets/99f463e8-40c5-4216-897c-4631c5938d1e)
+
+### Sort
+
+The **Sort** command allows us to order the fields in ascending or descending order.
+
+      Syntax      | sort <field_name>  
+      
+      Example     | sort Hostname # This will sort the result in Ascending order.
+
+The following search query will sort the results based on the Hostname field.
+
+**Search Query**: index=windowslogs |  table _time EventID Hostname SourceName | sort Hostname
+
+![Image](https://github.com/user-attachments/assets/13b35b96-0577-423d-ae4f-d61f729a9d13)
+
+### Reverse
+
+The reverse command simply reverses the order of the events.
+
+      Syntax   |  reverse
+      
+      Example   <Search Query> | reverse   
+
+**Search Query**: index=windowslogs | table _time EventID Hostname SourceName | reverse  
+
+![Image](https://github.com/user-attachments/assets/7c1867af-26da-4af7-8cac-31fe7197b354)
+
+## Transformational Commands in SPL
+
+Transformational commands are those commands that change the result into a data structure from the field-value pairs. These commands simply transform specific values for each event into numerical values which can easily be utilized for statistical purposes or turn the results into visualizations. Searches that use these transforming commands are called transforming searches. Some of the most used transforming commands are explained below.
+
+### Top
+
+This command returns frequent values for the top 10 events.
+
+      Syntax     | top  <field_name>
+                 | top limit=6 <field_name>
+
+      Example    top limit=3 EventID
+
+The following command will display the top 7 Image ( representing Processes) captured.
+
+**Search Query**: index=windowslogs | top limit=7 Image
+
+![Image](https://github.com/user-attachments/assets/92888cb8-cb1d-454b-b19b-22dcfa9878da)
+
+### Rare 
+
+This command does the opposite of top command as it returns the least frequent values or bottom 10 results.
+
+
+      Syntax     | rare  <field_name>
+                 | rare limit=6 <field_name>
+
+      Example    rare limit=3 EventID
+
+The following command will display the rare 7 Image ( representing Processes) captured.
+
+**Search Query**: index=windowslogs | rare limit=7 Image
+
+![Image](https://github.com/user-attachments/assets/dc5ea2a1-88a1-4d39-9b7d-9b4580b30d5c)
+
+### Highlight
+
+The highlight command shows the results in raw events mode with fields highlighted.
+
+      Syntax   highlight      <field_name1>      <field_name2>
+      
+      Example   highlight User, host, EventID, Image
+
+The following command will highlight the three mentioned fields in the raw logs
+
+**Search Query**: index=windowslogs | highlight User, host, EventID, Image
+
+![Image](https://github.com/user-attachments/assets/22546a5a-de49-4b7d-9022-6f4fbf011642)
+
