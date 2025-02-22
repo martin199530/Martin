@@ -275,3 +275,25 @@ This result clearly shows a continuous brute-force attack attempt from an IP **2
       Answer : admin
 
 **Question 3:** What was the correct password for admin access to the content management system running **imreallynotbatman.com**?
+
+![Image](https://github.com/user-attachments/assets/5bc55f70-e17e-4285-b68d-e33feccaa78e)
+
+      Answer : batman
+
+**Question 3 :** How many unique passwords were attempted in the brute force attempt?
+
+![Image](https://github.com/user-attachments/assets/f0ec9d79-e33b-4dae-b7cb-3992d0e1a8bf)
+
+      Answer : 412
+
+**Question 4:** What IP address is likely attempting a brute force password attack against **imreallynotbatman.com**?
+
+![Image](https://github.com/user-attachments/assets/41647119-0e80-44cc-a456-06c8724d7998)
+
+      Answer : 23.22.63.114
+
+**Question 5:** After finding the correct password, which IP did the attacker use to log in to the admin panel?
+
+![Image](https://github.com/user-attachments/assets/ac7188a6-6420-4fe4-ab1e-193ccf59eda9)
+
+      Answer : 40.80.148.42
