@@ -297,3 +297,71 @@ This result clearly shows a continuous brute-force attack attempt from an IP **2
 ![Image](https://github.com/user-attachments/assets/ac7188a6-6420-4fe4-ab1e-193ccf59eda9)
 
       Answer : 40.80.148.42
+
+## Installation Phase
+
+Once the attacker has **successfully exploited** the security of a system, he will try to **install a backdoor** or an application for persistence or to gain more control of the system. This activity comes under the installation phase.
+
+In the previous Exploitation phase, we found evidence of the webserver **iamreallynotbatman.com** getting compromised via **brute-force attack** by the attacker using the **python script** to automate getting the correct password. The attacker used the IP" **23.22.63.114** for the attack and the IP **40.80.148.42** to log in to the server. 
+
+This phase, I will investigate any **payload / malicious program** uploaded to the server from any attacker's IPs and installed into the compromised server.
+
+To begin an investigation, I first would narrow down any **http traffic** coming into our server **192.168.250.70** containing the term **".exe"** . This query may not lead to the findings, but it's good to start from 1 extension and move ahead.
+
+**Search Query :**
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" *.exe
+
+![Image](https://github.com/user-attachments/assets/06173cb2-b22a-4810-8415-c982d51cdae1)
+
+Next, I need to find if any of these files came from the IP addresses that were found to be associated with the attack earlier.
+
+**Search Query**:
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" "part_filename{}"="3791.exe"
+
+![Image](https://github.com/user-attachments/assets/5f335675-9128-4c49-bde9-ec7e5ddf42bd)
+
+**Was this file executed on the server after being uploaded?**
+
+I have found that file **3791.exe** was uploaded on the server. The question that come to my mind would be, **was this file executed on the server?** I need to narrow down the search query to show the logs from the **host-centric** log sources to answer this question.
+
+**Search Query**: 
+
+      index=botsv1 "3791.exe"
+
+![Image](https://github.com/user-attachments/assets/e217123e-80fc-4543-88ce-1bcd4df8413b)
+
+Following the **Host-centric log**, sources were found to have traces of the executable **3791. exe**.
+
+- Sysmon
+- WinEventlog
+- fortigate_utm
+
+For the evidence of execution, we can leverage sysmon and look at the EventCode=1 for program execution.
+
+**Search Query**: 
+
+      index=botsv1 "3791.exe" sourcetype="XmlWinEventLog" EventCode=1
+
+ This query will look for the **process Creation** logs containing the term **"3791.exe"** in the logs.
+
+![Image](https://github.com/user-attachments/assets/9e1c4f5c-449f-4125-8235-e02b15aa5fa3)
+
+Looking at the output, we can clearly say that this file was executed on the compromised server.
+
+**Question 1 :** Sysmon also collects the Hash value of the processes being created. What is the **MD5 HAS**H of the program **3791.exe** ?
+
+![Image](https://github.com/user-attachments/assets/e2715050-5e5c-4bf8-9086-7954d6252a77)
+
+      Answer : AAE3F5A29935E6ABCC2C2754D12A9AF0
+
+**Question 2 :** Looking at the logs, which **user** executed the program 3791.exe on the server?
+
+![Image](https://github.com/user-attachments/assets/073cf1cb-4b2f-4c89-9b77-5df1d97d37fe)
+
+**Question 3 :** Search hash on the virustotal. What other name is associated with this file 3791.exe?
+
+![Image](https://github.com/user-attachments/assets/aac455a0-125b-4e67-9128-d2359d0355d5)
+
+      Answer : ab.exe
