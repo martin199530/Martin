@@ -128,4 +128,28 @@ I have narrowed our search on the **src IP** and looked at the **source type** s
 
        Answer : 192.168.250.70
 
-### TO BE CONTINUED
+## Exploitation Phase
+
+The attacker needs to exploit the vulnerability to gain access to the system/server.
+
+To begin our investigation, let's note the information we have so far:
+
+- We found two IP addresses from the reconnaissance phase with sending requests to our server.
+- One of the IPs **40.80.148.42** was seen attempting to scan the server with IP **192.168.250.70**.
+- The attacker was using the web scanner **Acunetix** for the scanning attempt.
+
+## Count
+
+Let's use the following **search query** to see the number of counts by each source IP against the webserver.
+
+**Search Query**:
+
+        index=botsv1 imreallynotbatman.com sourcetype=stream* | stats count(src_ip) as Requests by src_ip | sort - Requests
+
+This query uses the stats function to display the count of the IP addresses in the field **src_ip**.
+
+![Image](https://github.com/user-attachments/assets/9b3cea56-4563-41b4-b043-c45b7cadc084)
+
+Additionally, we can also create different **visualization** to show the result.
+
+![Image](https://github.com/user-attachments/assets/4293ac4c-e5e5-41bb-b7dd-e68b47bc9fe5)
