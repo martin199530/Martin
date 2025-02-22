@@ -153,3 +153,125 @@ This query uses the stats function to display the count of the IP addresses in t
 Additionally, we can also create different **visualization** to show the result.
 
 ![Image](https://github.com/user-attachments/assets/4293ac4c-e5e5-41bb-b7dd-e68b47bc9fe5)
+
+Now we will narrow down the result to show requests sent to our web server, which has the IP **192.168.250.70**
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70"
+
+This query will look for all the inbound traffic towards **IP 192.168.250.70**.
+
+![Image](https://github.com/user-attachments/assets/63753220-f600-4eb4-a330-137dd9112f24)
+
+The result in the **src_ip** field shows three IP addresses (1 local IP and two remote IPs) that originated the **HTTP** traffic towards our webserver.
+
+Another interesting field, **http_method** will give us information about the HTTP Methods observed during these HTTP communications.
+
+We observed most of the requests coming to our server through the **POST** request, as shown below.
+
+![Image](https://github.com/user-attachments/assets/884b971d-88e5-45c9-b3a1-7a31f1f820ab)
+
+To see what kind of traffic is coming through the **POST** requests, we will narrow down on the field **http_method=POST** 
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST
+![Image](https://github.com/user-attachments/assets/96f2aaf6-f3ef-46c3-841b-b7257dccbe5c)
+
+﻿The result in the **src_ip** field shows two IP addresses sending all the POST requests to our server.
+
+**Interesting fields**: In the left panel, we can find some interesting fields containing valuable information. Some of the fields are:
+
+- src_ip
+- form_data
+- http_user_agent
+- uri
+
+The term **Joomla **is associated with the webserver found in a couple of fields like **uri, uri_path, http_referrer**, etc. This means our webserver is using Joomla CMS (Content Management Service) in the backend.
+
+A little search on the internet for the admin login page of the Joomla CMS will show as -> **/joomla/administrator/index.php**
+
+It is important because this uri contains the login page to access the web portal therefore we will be examining the traffic coming into this admin panel for a potential brute-force attack.
+
+![Image](https://github.com/user-attachments/assets/d2c255d2-f92a-4b76-8818-3a8f39ac620a)
+Reference: https://www.joomla.org/administrator/index.php
+
+We can narrow down our search to see the requests sent to the login portal using this information.
+
+**Search query**: 
+
+      index=botsv1 imreallynotbatman.com sourcetype=stream:http dest_ip="192.168.250.70"  uri="/joomla/administrator/index.php"
+
+ We are going to add **uri="/joomla/administrator/index.php"** in the search query to show the traffic coming into this URI.
+
+ ![Image](https://github.com/user-attachments/assets/3345797a-3a07-4874-9d03-c8d172c364fd)
+
+ **form_data** The field contains the requests sent through the **form** on the admin panel page, which has a login page. We suspect the attacker may have tried multiple credentials in an attempt to gain access to the admin panel. To confirm, we will dig deep into the values contained within the **form_data** field.
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST uri="/joomla/administrator/index.php" | table _time uri src_ip dest_ip form_data
+
+ We will add this -> **| table _time uri src_ip dest_ip form_data** to create a table containing important fields as shown below: 
+
+ ![Image](https://github.com/user-attachments/assets/646a8330-e37b-459d-9d63-a3d288a790e4)
+
+ If we keep looking at the results, we will find two interesting fields **username** that includes the single username **admin** in all the events and another field **passwd** that contains multiple passwords in it, which shows the attacker from the IP **23.22.63.114** Was trying to guess the password by brute-forcing and attempting numerous passwords.
+
+The time elapsed between multiple events also suggests that the attacker was using an automated tool as various attempts were observed in a short time.
+
+**Extracting Username and Passwd Fields using Regex**
+
+Looking into the logs, we see that these fields are not parsed properly. Let us use **Regex** in the search to extract only these two fields and their values from the logs and display them.
+
+We can display only the logs that contain the **username** and **passwd** values in the **form_data** field by adding form_data=* username * passwd* in the above search.
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST uri="/joomla/administrator/index.php" form_data=*username*passwd* | table _time uri src_ip dest_ip form_data
+
+![Image](https://github.com/user-attachments/assets/387e3e73-9f93-4847-800f-3bdf47afc41c)
+
+It's time to use Regex (**regular expressions**) to extract all the password values found against the field **passwd** in the logs. To do so, Splunk has a function called **rex**. If we type it in the search head, it will show detail and an example of how to use it to extract the values.
+
+![Image](https://github.com/user-attachments/assets/d9586538-f5d5-4fbd-8624-46ccda9cf555)
+
+Now, let's use Regex.  **rex field=form_data "passwd=(?<creds>\w+)"** To extract the passwd values only. This will pick the **form_data** field and extract all the values found with the field. **creds**.
+
+
+**Search Query**:
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST form_data=*username*passwd* | rex field=form_data "passwd=(?<creds>\w+)"  | table src_ip creds
+
+![Image](https://github.com/user-attachments/assets/bdb69eda-7eb0-42c5-a15f-41a67b819ea3)
+
+We have extracted the **passwords** being used against the **username=admin** on the admin panel of the webserver. If we examine the fields in the logs, we will find two values against the field **http_user_agent** as shown below:
+
+![Image](https://github.com/user-attachments/assets/2630b507-c9fc-418f-aa0c-54b7a0c8d322)
+
+The first value clearly shows attacker used a **python script** to automate the brute force attack against our server. But one request came from a **Mozilla browser**. WHY? To find the answer to this query, let's slightly change to the about search query and add **http_user_agent** a field in the search head.
+
+Let's create a table to display key fields and values by appending -> **| table _time src_ip uri http_user_agent creds** in the search query.
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST form_data=*username*passwd* | rex field=form_data "passwd=(?<creds>\w+)" |table _time src_ip uri http_user_agent creds
+
+![Image](https://github.com/user-attachments/assets/299ca28a-83e5-41cf-9a6c-585402445a78)
+
+This result clearly shows a continuous brute-force attack attempt from an IP **23.22.63.114** and 1 password attempt **batman** from IP 4**0.80.148.42** using the **Mozilla browser**.
+
+**Question 1 :** What was the URI which got multiple brute force attempts?
+
+![Image](https://github.com/user-attachments/assets/fe44ab4e-6619-4fed-aa48-ae7f3e1cab29)
+
+      Answer : /joomla/administrator/index.php
+
+**Question 2 :** Against which username was the brute force attempt made?
+
+![Image](https://github.com/user-attachments/assets/db6725fc-7e34-41b7-ae0f-fb98514d45c4)
+
+      Answer : admin
+
+**Question 3:** What was the correct password for admin access to the content management system running **imreallynotbatman.com**?
