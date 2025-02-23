@@ -411,3 +411,42 @@ The URL field shows 2 **PHP** files and one **jpeg** file. This jpeg file looks 
       Answer : poisonivy-is-coming-for-you-batman.jpeg
 
 **Question 2 :** Fortigate Firewall '**fortigate_utm**' detected SQL attempt from the attacker's IP **40.80.148.42**. What is the name of the rule that was triggered during the SQL Injection attempt?
+
+![Image](https://github.com/user-attachments/assets/5e812914-bce5-407e-a35c-ff70e4c7749d)
+
+      Answer : HTTP.URI.SQL.Injection
+
+## Command and Control Phase
+
+The attacker uploaded the file to the server before defacing it. While doing so, the attacker used a Dynamic DNS to resolve a malicious IP. Our objective would be to find the **IP that the attacker decided the DNS**.
+
+To investigate the communication to and from the adversary's IP addresses, we will be examining the **network-centric log** sources mentioned above. We will first pick **fortigate_utm** to review the firewall logs and then move on to the other log sources.
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=fortigate_utm"poisonivy-is-coming-for-you-batman.jpeg"
+
+![Image](https://github.com/user-attachments/assets/6ec21caa-d85a-4291-8c1b-861cb3585cb3)
+
+Looking into the Fortinet firewall logs, we can see the **src IP**, **destination IP**, and **URL**. Look at the fields on the left panel and the field **url** contains the FQDN (Fully Qualified Domain Name).
+
+![Image](https://github.com/user-attachments/assets/5ac82953-0052-4caf-be2f-70f7fd0092f9)
+
+Though we have found the answer, we can verify other log sources.
+
+Let us verify the answer by looking at another log source.**stream:http**.
+
+**Search Query**: 
+
+      index=botsv1 sourcetype=stream:http dest_ip=23.22.63.114 "poisonivy-is-coming-for-you-batman.jpeg" src_ip=192.168.250.70
+
+![Image](https://github.com/user-attachments/assets/044190d4-6d11-4ef9-83a9-9fe48bd8d11c)
+
+We have identified the suspicious domain as a Command and Control Server, which the attacker contacted after gaining control of the server.
+
+**Question 1 :** This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?
+
+![Image](https://github.com/user-attachments/assets/6749dca5-dff3-435d-8064-7274d26297cd)
+
+      Answer : prankglassinebracket.jumpingcrab.com
+
