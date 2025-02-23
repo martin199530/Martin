@@ -365,3 +365,49 @@ Looking at the output, we can clearly say that this file was executed on the com
 ![Image](https://github.com/user-attachments/assets/aac455a0-125b-4e67-9128-d2359d0355d5)
 
       Answer : ab.exe
+
+## Action on Objectives
+
+As the website was **defaced** due to a successful attack by the adversary, it would be helpful to understand better what ended up on the website that caused defacement.
+
+As an analyst, My first quest could be to figure out the traffic flow that could lead us to the answer to this question. I will start the investigation by examining the **Suricata log source** and the **IP addresses** communicating with the webserver **192.168.250.70**.
+
+**Search Query**:
+
+      index=botsv1 dest=192.168.250.70 sourcetype=suricata
+
+![Image](https://github.com/user-attachments/assets/dd62ded0-3864-4de1-944d-26ca2493d9c3)
+
+The logs do not show any **external IP** communicating with the server. Let us change the flow direction to see if any communication originates from the server.
+
+**Search Query**: 
+
+      index=botsv1 src=192.168.250.70 sourcetype=suricata
+
+![Image](https://github.com/user-attachments/assets/9a5367f2-fc6b-4522-947d-899416a3f1d9)
+
+What is interesting about the output? Usually, the web servers do not originate the traffic. The browser or the client would be the source, and the server would be the destination. Here we see three external IPs towards which our web server initiates the **outbound traffic**. There is a large chunk of traffic going to these **external IP** addresses, which could be worth checking.
+
+Pivot into the destination IPs one by one to see what kind of traffic/communication is being carried out.
+
+**Search Query**:
+
+       index=botsv1 src=192.168.250.70 sourcetype=suricata dest_ip=23.22.63.114
+
+![Image](https://github.com/user-attachments/assets/ad7bbdf1-0702-4701-8bb1-0bb0f3bed7b4)
+
+The URL field shows 2 **PHP** files and one **jpeg** file. This jpeg file looks interesting. Let us change the search query and see where this jpeg file came from.
+
+**Search Query**: 
+
+      index=botsv1 url="/poisonivy-is-coming-for-you-batman.jpeg" dest_ip="192.168.250.70" | table _time src dest_ip http.hostname url
+
+![Image](https://github.com/user-attachments/assets/1f824981-dc31-4837-a033-c2f69d05be6b)
+
+**Question 1 :** What is the name of the file that defaced the imreallynotbatman.com website ?
+
+![Image](https://github.com/user-attachments/assets/aecb236c-1ec1-4e0e-b985-062489fb9f58)
+
+      Answer : poisonivy-is-coming-for-you-batman.jpeg
+
+**Question 2 :** Fortigate Firewall '**fortigate_utm**' detected SQL attempt from the attacker's IP **40.80.148.42**. What is the name of the rule that was triggered during the SQL Injection attempt?
