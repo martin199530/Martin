@@ -13,7 +13,7 @@ CoCanDa, a planet known as 'The Heaven of the Universe' has been having a bad ye
 At the end of this analysis we should be able to answer these questions
 1. What is the email service used by the malicious actor?
 1. What is the Reply-To email address?
-2. What is the filetype of the received attachment which helped to continue the investigation?
+2. What is the filetype of the received attachment which helped to continue the investigation ?
 3. What is the name of the malicious actor? 
 4. What is the location of the attacker in this Universe? 
 5. What could be the probable C&C domain to control the attacker’s autonomous bots? 
@@ -44,7 +44,7 @@ At the end of this analysis we should be able to answer these questions
 
  ![1](https://github.com/user-attachments/assets/a0c16a41-0bc4-4980-816f-6ac47d344285)
 
- - Next we have **Received** or **Received by**. These are email servers that have received the email similar to how post office delivers their mail. The mail will end up in multiple post offices before reaching the post office that is closest to the recipient and the first **_Received by_** from the top is the closest mail server to the recipient. While the last **_Received by_** is the closest mail server to the sender
+ - Next we have **Received** or **Received by**. These are email servers that have received the email similar to how post office delivers their mail. The mail will end up in multiple post offices before reaching the post office that is closest to the recipient and the first **_Received by_** from the top is the closest mail server to the recipient. While the last **_Received by_** is the closest mail server to the sender.
 
  ![2](https://github.com/user-attachments/assets/9a56670c-76a1-4af1-80fb-69f185b4c95e)
  ![3](https://github.com/user-attachments/assets/73708806-1786-442d-921e-bf70e53b7f7a)
