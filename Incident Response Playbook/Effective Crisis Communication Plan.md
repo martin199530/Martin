@@ -1,6 +1,6 @@
 
 # How to Create an Effective Crisis Communication Plan  
-
+![Image](https://github.com/user-attachments/assets/b2d2d0ba-d18a-4c28-bfe2-125a078419fd)
 ## Introduction  
 The question is no longer **whether** but **when** your organization will suffer a significant cyber incident. A well-structured **crisis communication plan** is essential to protect your business, maintain customer trust, and mitigate reputational damage.  
 
