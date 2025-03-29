@@ -296,5 +296,5 @@ The following command will highlight the three mentioned fields in the raw logs
 **Search Query**: index=windowslogs | highlight User, host, EventID, Image
 
 ![Image](https://github.com/user-attachments/assets/22546a5a-de49-4b7d-9022-6f4fbf011642)
-
+![Image](https://github.com/user-attachments/assets/9d424a9c-0edb-4225-b4b3-8e00c4a01060)
 ## EndS
