@@ -21,7 +21,7 @@ Hi! I’m a Cybersecurity Analyst with over 5 years of experience in Security Op
 ## Contact
 - **LinkedIn**: [linkedin.com/in/martinkifack](https://linkedin.com/in/martinkifack)
 - **Email**: kifackmartin@gmail.com
-- **Location**: Ottawa, Canada
+- **Location**: Montreal, Canada
 
 ## Looking For
 I’m eager to join a SOC or OT security team where I can leverage my skills to monitor threats, secure critical infrastructure, and grow as a cybersecurity professional.
