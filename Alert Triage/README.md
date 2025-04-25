@@ -1,31 +1,105 @@
-# Martin Tsague Kifack - Cybersecurity Analyst (SOC & OT)
+# 🛡️ Level 1 Analyst Alert Triage Workflows
 
-Hi! I’m a Cybersecurity Analyst with over 5 years of experience in Security Operations Centers (SOC) and Operational Technology (OT) security. Based in Ottawa, Canada, I’m passionate about protecting IT and OT environments using tools like Splunk, Nessus, and SCADAfence. This GitHub showcases my practical projects in SIEM, incident response, and ICS/SCADA security.
+This guide provides actionable triage workflows for **Level 1 Cybersecurity Analysts**, focused on three common incident types:
+- 📄 Phishing
+- 🦠 Malware
+- ☁️ Cloud Security
 
-## About Me
-- **Expertise**: SOC monitoring (Splunk, Microsoft Sentinel), OT security (SCADA, IEC 62443), incident response, and network segmentation.
-- **Experience**: CyberPro Group (SOC Analyst), SONARA (OT Security), Orange Cameroon (InfoSec Analyst).
-- **Tech Stack**: Splunk, Wireshark, Nessus, Nozomi Networks, Python, PowerShell, Modbus.
-- **Languages**: Fluent in English and French.
+Each workflow includes a breakdown of steps to follow when handling real alerts in a SOC or IT environment.
 
-## Featured Projects
-- **[Incident Handling with Splunk](https://github.com/martin199530/Martin/tree/main/SIEM_Lab)**  
-  Investigated a website defacement attack with Splunk, mapping it to the Cyber Kill Chain.
-- **[OT Risk Assessment](https://github.com/martin199530/Martin/tree/main/ICS-OT-CyberSecurity)**  
-  Assessed risks in ICS environments using IEC 62443 and calculated mitigation impacts.
-- **[Malware Incident Response Playbook](https://github.com/martin199530/Martin/tree/main/Malware%20-%20Incident%20Response%20Playbook)**  
-  Developed a detailed playbook for malware containment and eradication.
-- **[Attacking ICS Plant](https://github.com/martin199530/Martin/tree/main/ICS-OT-CyberSecurity)**  
-  Simulated Modbus-based attacks on VirtuaPlant to highlight OT vulnerabilities.
+## 📄 Phishing Alert Triage Workflow
 
-## Contact
-- **LinkedIn**: [linkedin.com/in/martinkifack](https://linkedin.com/in/martinkifack)
-- **Email**: kifackmartin@gmail.com
-- **Location**: Ottawa, Canada
+> **Example:** User reports a suspicious email with a malicious-looking link
 
-## Looking For
-I’m eager to join a SOC or OT security team where I can leverage my skills to monitor threats, secure critical infrastructure, and grow as a cybersecurity professional.
+### ✅ Step 1: Check Alert Details
+- **Sender Email:** `unknown@weird-domain.biz`
+- **Subject Line:** `Your invoice is ready!`
+- **Link/Attachment?** Yes — links to `http://malicious-phish.com/invoice.html`
+- **Reported By:** `user123@example.com`
+- **Time Received:** 10:42 AM
 
----
+### 🧠 Step 2: Add Context
+- 🔍 Check link reputation on [VirusTotal](https://virustotal.com)
+- 🧐 Is the domain a spoof or typo?
+- 👤 Is the user a VIP?
+- 📬 Any other reports of this email?
 
-Thanks for stopping by! Explore my repos for detailed write-ups and hands-on projects.
+### 🚦 Step 3: Classify the Alert
+- 🔴 **High:** Confirmed malicious + sensitive user
+- 🟠 **Medium:** Suspicious but unclear
+- 🟢 **Low:** Safe or blocked internally
+
+### 📩 Step 4: Take Action
+- Quarantine or sandbox the email
+- Block the domain if confirmed
+- Notify the user
+- Escalate to L2 if malicious
+
+### 🧹 Step 5: Document & Close
+- Save headers, links, evidence
+- Update threat intel feeds or email filters
+
+## 🦠 Malware Detection Alert Triage Workflow
+
+> **Example:** Endpoint protection quarantines a suspicious executable
+
+### ✅ Step 1: Check Alert Details
+- **Host:** `LAPTOP-IT32`
+- **File Name:** `invoice_reader.exe`
+- **Detected By:** Defender ATP
+- **Action Taken:** Quarantined
+
+### 🧠 Step 2: Add Context
+- Was the file executed?
+- How was it introduced (email, USB)?
+- Any suspicious processes or traffic?
+
+### 🚦 Step 3: Classify the Alert
+- 🔴 **High:** Executed with signs of compromise
+- 🟠 **Medium:** Quarantined before execution
+- 🟢 **Low:** False positive or known file
+
+### 📩 Step 4: Take Action
+- Analyze logs and behavior
+- Run full scan
+- Isolate the endpoint if needed
+- Escalate if threat confirmed
+
+### 🧹 Step 5: Document & Close
+- Save hash, detection logs, and actions taken
+
+## ☁️ Cloud Security Incident Triage Workflow
+
+> **Example:** IAM login from an unusual country
+
+### ✅ Step 1: Check Alert Details
+- **User:** `service-account-01`
+- **IP Address:** `103.92.40.10`
+- **Login Location:** Vietnam
+- **Platform:** AWS Console
+
+### 🧠 Step 2: Add Context
+- 🔐 Is MFA enabled?
+- 📍 Is this geo-location normal?
+- 🕵️‍♂️ Any sensitive actions or changes?
+
+### 🚦 Step 3: Classify the Alert
+- 🔴 **High:** New country, no MFA, critical user
+- 🟠 **Medium:** Unusual IP but no damage
+- 🟢 **Low:** Known travel or VPN usage
+
+### 📩 Step 4: Take Action
+- Lock account or disable key
+- Review CloudTrail or audit logs
+- Escalate if needed
+
+### 🧹 Step 5: Document & Close
+- Record logs, IP info, and justification
+- Update incident register or SIEM tags
+
+## ⚠️ Important Notes
+These playbooks are designed for quick triage and escalation. Always follow your organization’s Incident Response Plan (IRP) and escalation matrix.
+
+## 📘 Contribution
+*Maintained by a cybersecurity analyst for junior SOC roles. Pull requests are welcome!*
+
