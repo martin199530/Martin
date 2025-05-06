@@ -16,7 +16,7 @@ A risk assessment identifies potential threats and vulnerabilities to an informa
 - Organizational Information Security Policy  
 - Network Diagrams  
 - Data Flow Diagrams  
-- Asset Inventory  
+- Asset Register
 
 ---
 
@@ -26,7 +26,7 @@ A risk assessment identifies potential threats and vulnerabilities to an informa
 - Identify data classifications (e.g., public, internal, confidential, regulated).
 
 ### 📄 Documents Needed:
-- Asset Register  
+- Asset Inventory   
 - Data Classification Policy  
 
 ---
