@@ -45,7 +45,7 @@ A risk assessment identifies potential threats and vulnerabilities to an informa
 
 ## **Step 4: Assess Existing Security Controls**
 
-- Document technical, administrative, and physical controls in place.  
+- Document technical, administrative or operational, Compliance and physical controls in place.  
 - Determine if controls are preventive, detective, or corrective.
 
 ### 📄 Reference Materials:
