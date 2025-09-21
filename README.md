@@ -1,11 +1,11 @@
 # Martin Tsague Kifack - Cybersecurity Analyst (SOC & OT)
 
-Hi! I’m a Cybersecurity Analyst with over 5 years of experience in Security Operations Centers (SOC) and Operational Technology (OT) security. Based in Ottawa, Canada, I’m passionate about protecting IT and OT environments using tools like Splunk, Nessus, and SCADAfence. This GitHub showcases my practical projects in SIEM, incident response, and ICS/SCADA security.
+Hi! I’m a results-driven Cybersecurity Analyst with 5+ years of experience across security operations, compliance frameworks, and risk management. Skilled in building SIEM content, leading end-to-end incident response, and aligning controls with SOC 2, PCI-DSS, ISO 27001, NIST CSF, CIS Controls, PIPEDA, and Quebec Law 25. Proven record of reducing MTTR by 40%, remediating 85% of critical vulnerabilities, and achieving zero audit non-conformities. Adept at partnering with engineering, product, and IT teams to harden applications, conduct vendor risk reviews, and drive continuous compliance.
 
 ## About Me
-- **Expertise**: SOC monitoring (Splunk, Microsoft Sentinel), OT security (SCADA, IEC 62443), incident response, and network segmentation.
+- **Expertise**: SOC monitoring (Splunk, Microsoft Sentinel), OT security (SCADA, IEC 62443), incident response, network segmentation, Compliance Monitoring.
 - **Experience**: CyberPro Group (SOC Analyst), SONARA (OT Security), Orange Cameroon (InfoSec Analyst).
-- **Tech Stack**: Splunk, Wireshark, Nessus, Nozomi Networks, Python, PowerShell, Modbus.
+- **Tech Stack**: Splunk, Wireshark, Nessus, Nozomi Networks, Python, PowerShell, ServiceNow.
 - **Languages**: Fluent in English and French.
 
 ## Featured Projects
